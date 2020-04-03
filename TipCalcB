@@ -1,0 +1,143 @@
+package Nov7;
+
+import java.util.Scanner; // Scanner Class
+
+public class TipCalcB extends TipCalcA { // Extending Class TipCalcA to Class TipCalcB
+	double split;        // Initializing variables
+	public static double splitPrompt;
+	public static double splitPrompts;
+    public static double total;
+    static int rating;
+    double tip;
+    public static double billPerPerson;
+    double questTotal;
+    double rate;
+    static double recTip;
+    static double ans1;
+    static double ans2;
+    static double ans3;
+    static double ans4;
+    static double ans5;
+    static double billAmount;
+    static double totalBillAmount;
+
+    public static Scanner scan = new Scanner(System.in); // Scanner
+        
+    public static void calcBill() {			// Creating billAmount from TipCalcA
+    	billAmount = scan.nextDouble();
+        }
+    
+    public static void servQuest1() {
+    	ans1 = scan.nextDouble();
+    	}
+    
+    public static void servQuest2() {
+    	ans2 = scan.nextDouble();
+    	}
+    
+    public static void servQuest3() {
+    	ans3 = scan.nextDouble();
+    	}
+    
+    public static void servQuest4() {
+    	ans4 = scan.nextDouble();
+    	}
+    
+    public static void servQuest5() {
+    	ans5 = scan.nextDouble();
+    	}
+        
+    public void percTip() {					// Creating tip from TipCalcA
+        questTotal = (ans1 + ans2 + ans3 + ans4 + ans5) / 5;
+        recTip = 15 + questTotal; // This is creating a possible tip range of 15-25%
+        this.recTip = recTip;
+        System.out.println(recTip);
+    }
+    
+    public static void totalBill() {
+    	totalBillAmount = billAmount + (recTip/100)*billAmount;
+    	System.out.println(totalBillAmount);
+    }
+             
+    public static void Split() { // New method for splitting the bill
+        System.out.println("Would you like to split the bill at " + choice + "? "); // Asking user if they want to split
+        System.out.println("Enter 1 for yes or 0 for no: "); // Taking user's answer from question
+
+        splitPrompt = scan.nextDouble(); // User's choice on splitting the bill
+        
+        if(splitPrompt == 0) { // If no split, prints bill, thanks user, says goodbye
+            System.out.println("Your total bill is: " + totalBillAmount); // Prints bill
+            System.out.println("We hope you enjoyed your time at " + choice + "!"); // Message
+        }
+        
+        else if(splitPrompt == 1) { // If split, asks how many ways, prints bill, thanks user, says goodbye
+            System.out.println("How many ways would you like to split the bill? "); // How many ways??
+            splitPrompts = scan.nextDouble(); // Storing the amount of ways bill will be split
+            billPerPerson = totalBillAmount / splitPrompts; // Splitting bill
+            System.out.println("Each person pays: $" + billPerPerson); // Prints bill with split
+            System.out.println("We hope you enjoyed your time at " + choice + "!"); // Message
+        }
+        
+        else System.out.println("Invalid Entry"); // If not 0 or 1 for split options, prints invalid entry
+        
+        }
+   public static void Survey() {
+	
+	System.out.println("Please rate your experience with our Tip Calculator on a scale of 1-5!");
+	rating = scan.nextInt();
+	
+	if(rating <= 5) {
+	
+    switch (rating) {
+	case 1:
+		System.out.println("We are sorry to hear that, please let us know how we can improve!");
+		System.out.println("Visit us online at TipCalc.com to leave a review!");
+		System.out.println("Thank you for using the Tip Calculator!"); // Thanks user
+        System.out.println("See you next time!");  // Says goodbye
+		break;
+	case 2:
+		System.out.println("We are sorry to hear that, please let us know how we can improve!");
+		System.out.println("Visit us online at TipCalc.com to leave a review!");
+		System.out.println("Thank you for using the Tip Calculator!"); // Thanks user
+        System.out.println("See you next time!");  // Says goodbye
+		break;
+	case 3:
+		System.out.println("We are sorry to hear that, please let us know how we can improve!");
+		System.out.println("Visit us online at TipCalc.com to leave a review!");
+		System.out.println("Thank you for using the Tip Calculator!"); // Thanks user
+        System.out.println("See you next time!");  // Says goodbye
+		break;
+	case 4:
+		System.out.println("Awesome! Please let us know how we can improve!");
+		System.out.println("Visit us online at TipCalc.com to leave a review!");
+		System.out.println("Thank you for using the Tip Calculator!"); // Thanks user
+        System.out.println("See you next time!");  // Says goodbye
+		break;
+	case 5:
+		System.out.println("Awesome! We are glad you were satisfied!");
+		System.out.println("Visit us online at TipCalc.com to leave a review!");
+		System.out.println("Thank you for using the Tip Calculator!"); // Thanks user
+        System.out.println("See you next time!");  // Says goodbye
+		break;
+    }
+    
+    if(rating == 0) {
+    	System.out.println("Invalid entry!");
+    	System.out.println("Visit us online at TipCalc.com to leave a review!");
+		System.out.println("Thank you for using the Tip Calculator!"); // Thanks user
+        System.out.println("See you next time!");  // Says goodbye
+    }
+    
+    else if(rating >= 5) {
+    	System.out.println("Invalid entry!");
+    	System.out.println("Visit us online at TipCalc.com to leave a review!");
+		System.out.println("Thank you for using the Tip Calculator!"); // Thanks user
+        System.out.println("See you next time!");  // Says goodbye
+    }
+    
+}
+   
+}
+    	
+}
+

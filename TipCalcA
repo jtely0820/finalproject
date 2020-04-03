@@ -1,0 +1,89 @@
+package Nov7;
+
+import java.util.ArrayList; // Import array list
+import java.util.*;
+import java.util.Scanner; //Import Scanner
+
+abstract class TipCalcA {   // Class TipCalcA
+	
+	public static String choice; // Creating "choice" for user's restaurant choice
+	
+	public static void main(String[] args) { // main method
+		
+		System.out.println("Welcome to the Tip Calculator!"); // Welcome user to program
+        TipCalcB Calc = new TipCalcB();
+        
+       
+        Scanner in = new Scanner(System.in); // new scanner "in"
+        
+
+        ArrayList<String> restaurants = new ArrayList<>(); // Creating array list of restaurant possibilities
+        restaurants.add("Cheddars");
+        restaurants.add("Applebees");
+        restaurants.add("Outback");
+        restaurants.add("Bonefish");
+        restaurants.add("Chilis");
+        
+        Date today = new Date();
+        System.out.println("The date of your dining experience is: " + today);
+        
+        
+        System.out.println("Which restaurant are you dining at today? (Please choose 1-5)"); // Prompt user to enter restaurant 
+        System.out.println(restaurants);
+        System.out.println(""); // Used to create int "which"
+        final int which = in.nextInt(); // Creating int "which" based on users input, now a constant
+        
+        
+        		
+        
+        if(which > restaurants.size() || which < 1) { // if "which" is less than 1, it would be an invalid choice
+            System.out.println("Invalid Choice");
+        } else {                                     // Ex. 4 means Bonefish but must tell array 3 (which - 1)
+            choice = restaurants.get(which - 1); 
+            
+            
+        System.out.println("Please enter your total bill at " + choice + ", including tax: "); // Total bill
+    	TipCalcB.calcBill(); // Referencing TipCalcB
+    	
+    	// would u like to use our tip percentage questionnaire??
+    	//yes, use questionnaire
+    	// no, use @Override here ??
+    	
+    	System.out.println("On a scale of 1-10, how would you rate your server"
+    			+ " with keeping your drinks refilled?");
+    	TipCalcB.servQuest1();
+    	
+    	System.out.println("On a scale of 1-10, how would you rate your server's"
+    			+ " attitude/body language?");
+    	TipCalcB.servQuest2();
+    	
+    	System.out.println("On a scale of 1-10, how would you rate your server's"
+    			+ " cleanliness/uniform?");
+    	TipCalcB.servQuest3();
+    	
+    	System.out.println("On a scale of 1-10, how would you rate the time that it took for"
+    			+ " appetizers and food to arrive?");
+    	TipCalcB.servQuest4();
+    	
+    	System.out.println("On a scale of 1-10, how would you rate the quality of the"
+    			+ " food that you ordered?");
+    	TipCalcB.servQuest5();
+    	    
+    	System.out.println("Based on your answers, we calculated that your tip percentage"
+    			+ " should be:");
+    	Calc.percTip(); // Referencing Calc in TipCalcB
+    	
+    	System.out.println("With our recommended tip percentage, your total bill will be:");
+    	Calc.totalBill();
+    	
+    	Calc.Split();
+    	
+    	Calc.Survey();
+    	
+    	
+    	
+        }
+
+    }
+	
+}

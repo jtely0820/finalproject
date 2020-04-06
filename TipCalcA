@@ -4,7 +4,7 @@ import java.util.ArrayList; // Import array list
 import java.util.*;
 import java.util.Scanner; //Import Scanner
 
-abstract class TipCalcA {   // Class TipCalcA
+abstract class TipCalcA {   // Class TipCalcA (#8)
 	
 	public static String choice; // Creating "choice" for user's restaurant choice
 	
@@ -16,23 +16,24 @@ abstract class TipCalcA {   // Class TipCalcA
         Scanner in = new Scanner(System.in); // new scanner "in"
         
 
-        ArrayList<String> restaurants = new ArrayList<>(); // Creating array list of restaurant possibilities
+        ArrayList<String> restaurants = new ArrayList<>(); // Creating array list of restaurant possibilities (#13)
         restaurants.add("Cheddars");
         restaurants.add("Applebees");
         restaurants.add("Outback");
         restaurants.add("Bonefish");
         restaurants.add("Chilis");
+       
         
-        Date today = new Date(); //setting current date of tip calculator use
-        System.out.println("The date of this tip calculator is: " + today);
+        Date today = new Date(); //setting current date of tip calculator use (#18)
+        System.out.println("The date of this tip calculator is: " + today); // (#19)
         
         
         System.out.println("Which restaurant are you dining at today? (Please choose 1-5)"); // Prompt user to enter restaurant 
         System.out.println(restaurants);
         System.out.println(""); // Used to create int "which"
-        final int which = in.nextInt(); // Creating int "which" based on users input, now a constant
+        final int which = in.nextInt(); // Creating constant int "which" as users restaurant choice (#3)
        
-        	if(which > restaurants.size() || which < 1) { // if "which" is less than 1, it would be an invalid choice
+        	if(which > restaurants.size() || which < 1) { // if "which" is less than 1, it would be an invalid choice (#5)
         		System.out.println("Invalid Choice");
         	} else {                                     // Ex. 4 means Bonefish but must tell array 3 (which - 1)
         		choice = restaurants.get(which - 1); 

@@ -2,9 +2,9 @@ package Nov7;
 
 import java.util.Scanner; // Scanner Class
 
-public class TipCalcB extends TipCalcA { // Extending Class TipCalcA to Class TipCalcB
-	double split;        // Initializing variables
-	public static double splitPrompt;
+public class TipCalcB extends TipCalcA { // Extending Class TipCalcA to Class TipCalcB (#7)
+	double split;        // Initializing variables (#2)
+	public static double splitPrompt; // (#20)
 	public static double splitPrompts;
     public static double total;
     static int rating;
@@ -23,22 +23,22 @@ public class TipCalcB extends TipCalcA { // Extending Class TipCalcA to Class Ti
     static double totalBillAmount;
     static double totalBillAmount2;
 
-    public static Scanner scan = new Scanner(System.in); // Scanner
+    public static Scanner scan = new Scanner(System.in); // Scanner class (#1)
         
-    public static void calcBill() {			// Creating billAmount from TipCalcA
+    public static void calcBill() {			// Creating billAmount from TipCalcA (#20)
     	// billAmount = scan.nextDouble();
     	boolean inputWorks = false; // setting inputWorks to false, so if a whole number is not entered
 		do {							// it will be false
         System.out.print("Please enter your total bill at " + choice + ", including tax: ");
         if (scan.hasNextInt()){     
         billAmount = scan.nextDouble();
-        inputWorks = true;      // if else that is handling the exception, insert funny println
+        inputWorks = true;      // if else that is handling the exception, insert funny println (#16)
         } 
         else
             System.out.println("Our math guy is out today, can you please round to the nearest dollar?");
             scan.nextLine();
         } 
-		while (inputWorks == false);  
+		while (inputWorks == false);  // (#10)
 		inputWorks = false;
         }
     
@@ -65,7 +65,7 @@ public class TipCalcB extends TipCalcA { // Extending Class TipCalcA to Class Ti
     public void percTip() {					// Creating tip from TipCalcA
         questTotal = (ans1 + ans2 + ans3 + ans4 + ans5) / 5;  // questTotal is the average of the 5 questions
         recTip = 15 + questTotal; // This is creating a possible tip range of 15-25%
-        this.recTip = recTip;
+        this.recTip = recTip; // (#6)
         System.out.println(recTip);
     }
     
@@ -146,7 +146,7 @@ public class TipCalcB extends TipCalcA { // Extending Class TipCalcA to Class Ti
     /* These cases output a response for each
      * individual rating, if this tip calculator
      *  were real, the link would direct them 
-     * to our website for more information */
+     * to our website for more information (#4) */
     
     if(rating == 0) {
     	System.out.println("Invalid entry!");

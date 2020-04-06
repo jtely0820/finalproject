@@ -8,6 +8,7 @@ public class TipCalcB extends TipCalcA { // Extending Class TipCalcA to Class Ti
 	public static double splitPrompts;
     public static double total;
     static int rating;
+    static int tipPerc;
     double tip;
     public static double billPerPerson;
     double questTotal;
@@ -20,15 +21,29 @@ public class TipCalcB extends TipCalcA { // Extending Class TipCalcA to Class Ti
     static double ans5;
     static double billAmount;
     static double totalBillAmount;
+    static double totalBillAmount2;
 
     public static Scanner scan = new Scanner(System.in); // Scanner
         
     public static void calcBill() {			// Creating billAmount from TipCalcA
-    	billAmount = scan.nextDouble();
+    	// billAmount = scan.nextDouble();
+    	boolean inputWorks = false; // setting inputWorks to false, so if a whole number is not entered
+		do {							// it will be false
+        System.out.print("Please enter your total bill at " + choice + ", including tax: ");
+        if (scan.hasNextInt()){     
+        billAmount = scan.nextDouble();
+        inputWorks = true;      // if else that is handling the exception, insert funny println
+        } 
+        else
+            System.out.println("Our math guy is out today, can you please round to the nearest dollar?");
+            scan.nextLine();
+        } 
+		while (inputWorks == false);  
+		inputWorks = false;
         }
     
-    public static void servQuest1() {
-    	ans1 = scan.nextDouble();
+    public static void servQuest1() {     //servQuest1-5 methods storing the answers to
+    	ans1 = scan.nextDouble();		  // each individual question to be used in percTip calculation
     	}
     
     public static void servQuest2() {
@@ -48,15 +63,22 @@ public class TipCalcB extends TipCalcA { // Extending Class TipCalcA to Class Ti
     	}
         
     public void percTip() {					// Creating tip from TipCalcA
-        questTotal = (ans1 + ans2 + ans3 + ans4 + ans5) / 5;
+        questTotal = (ans1 + ans2 + ans3 + ans4 + ans5) / 5;  // questTotal is the average of the 5 questions
         recTip = 15 + questTotal; // This is creating a possible tip range of 15-25%
         this.recTip = recTip;
         System.out.println(recTip);
     }
     
     public static void totalBill() {
-    	totalBillAmount = billAmount + (recTip/100)*billAmount;
-    	System.out.println(totalBillAmount);
+    	totalBillAmount = billAmount + (recTip/100)*billAmount; // totalBill1 will be used by those
+    	System.out.println(totalBillAmount);					// who choose to use the questionnaire
+    }
+    
+    public static void totalBill2() {
+    	System.out.println("Please enter your tip percentage:");  // totalBill2 will be used by those who
+    	double tipPerc = scan.nextDouble();						  // would rather enter their own tip %
+    	totalBillAmount2 = billAmount + (tipPerc/100) * billAmount;
+    	System.out.println("Your total with the tip is: $" + totalBillAmount2);
     }
              
     public static void Split() { // New method for splitting the bill
@@ -81,7 +103,7 @@ public class TipCalcB extends TipCalcA { // Extending Class TipCalcA to Class Ti
         else System.out.println("Invalid Entry"); // If not 0 or 1 for split options, prints invalid entry
         
         }
-   public static void Survey() {
+   public static void Survey() { // the survery method will be used to gain user feedback
 	
 	System.out.println("Please rate your experience with our Tip Calculator on a scale of 1-5!");
 	rating = scan.nextInt();
@@ -121,6 +143,11 @@ public class TipCalcB extends TipCalcA { // Extending Class TipCalcA to Class Ti
 		break;
     }
     
+    /* These cases output a response for each
+     * individual rating, if this tip calculator
+     *  were real, the link would direct them 
+     * to our website for more information */
+    
     if(rating == 0) {
     	System.out.println("Invalid entry!");
     	System.out.println("Visit us online at TipCalc.com to leave a review!");
@@ -133,11 +160,7 @@ public class TipCalcB extends TipCalcA { // Extending Class TipCalcA to Class Ti
     	System.out.println("Visit us online at TipCalc.com to leave a review!");
 		System.out.println("Thank you for using the Tip Calculator!"); // Thanks user
         System.out.println("See you next time!");  // Says goodbye
-    }
-    
+    }   
 }
-   
 }
-    	
 }
-

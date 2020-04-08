@@ -155,12 +155,18 @@ public class TipCalcB extends TipCalcA { // Extending Class TipCalcA to Class Ti
         System.out.println("See you next time!");  // Says goodbye
     }
     
-    else if(rating >= 5) {
+    else if(rating > 5) {
     	System.out.println("Invalid entry!");
     	System.out.println("Visit us online at TipCalc.com to leave a review!");
 		System.out.println("Thank you for using the Tip Calculator!"); // Thanks user
         System.out.println("See you next time!");  // Says goodbye
-    }   
+    } 
+    else if (rating < 0) {
+    	System.out.println("Invalid entry!");
+    	System.out.println("Visit us online at TipCalc.com to leave a review!");
+		System.out.println("Thank you for using the Tip Calculator!"); // Thanks user
+        System.out.println("See you next time!");  // Says goodbye
+    }
 }
 }
 }

@@ -44,7 +44,7 @@ abstract class TipCalcA {   // Class TipCalcA (#8)
     	System.out.println("You can enter your own tip percetage" +
     			" or you can use our automated tip percentage questionnaire!");
     	System.out.println("Would you like to use our questionnaire? Please enter 1 for yes or 0 for no:");
-    		int questAns = in.nextInt();
+    		int questAns = in.nextInt(); // questAns is the users input for using the questionnaire
     		if(questAns == 0) {
     			Calc.totalBill2(); // calling totalBill2 for the user who wants to enter their own tip %
     		}

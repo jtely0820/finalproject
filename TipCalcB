@@ -30,13 +30,13 @@ public class TipCalcB extends TipCalcA { // Extending Class TipCalcA to Class Ti
     	boolean inputWorks = false; // setting inputWorks to false, so if a whole number is not entered
 		do {							// it will be false
         System.out.print("Please enter your total bill at " + choice + ", including tax: ");
-        if (scan.hasNextInt()){     
+        if (scan.hasNextInt()){  // if the criteria is met, set as bill amount   
         billAmount = scan.nextDouble();
-        inputWorks = true;      // if else that is handling the exception, insert funny println (#16)
+        inputWorks = true;      // set true if a whole number is entered
         } 
         else
             System.out.println("Our math guy is out today, can you please round to the nearest dollar?");
-            scan.nextLine();
+            scan.nextLine(); // exception if whole number is not entered
         } 
 		while (inputWorks == false);  // (#10)
 		inputWorks = false;
@@ -108,7 +108,7 @@ public class TipCalcB extends TipCalcA { // Extending Class TipCalcA to Class Ti
 	System.out.println("Please rate your experience with our Tip Calculator on a scale of 1-5!");
 	rating = scan.nextInt();
 	
-	if(rating <= 5) {
+	if(rating <= 5) { // if the rating is between 1 and 5, switch statement used to print data to user
 	
     switch (rating) {
 	case 1:
@@ -148,20 +148,20 @@ public class TipCalcB extends TipCalcA { // Extending Class TipCalcA to Class Ti
      *  were real, the link would direct them 
      * to our website for more information (#4) */
     
-    if(rating == 0) {
+    if(rating == 0) { // invalid entry of 0
     	System.out.println("Invalid entry!");
     	System.out.println("Visit us online at TipCalc.com to leave a review!");
 		System.out.println("Thank you for using the Tip Calculator!"); // Thanks user
         System.out.println("See you next time!");  // Says goodbye
     }
     
-    else if(rating > 5) {
+    else if(rating > 5) { // invalid entry of greater than 5
     	System.out.println("Invalid entry!");
     	System.out.println("Visit us online at TipCalc.com to leave a review!");
 		System.out.println("Thank you for using the Tip Calculator!"); // Thanks user
         System.out.println("See you next time!");  // Says goodbye
     } 
-    else if (rating < 0) {
+    else if (rating < 0) { // invalid entry of negative numbers
     	System.out.println("Invalid entry!");
     	System.out.println("Visit us online at TipCalc.com to leave a review!");
 		System.out.println("Thank you for using the Tip Calculator!"); // Thanks user
